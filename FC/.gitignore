@@ -1,0 +1,4 @@
+model/
+mnist_data_jpg/
+data/
+.pyc
