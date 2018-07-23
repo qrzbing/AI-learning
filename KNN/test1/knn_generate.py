@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 '''
-File: f:\github\AI-learning\KNN\knn_generate.py
-Project: f:\github\AI-learning\KNN
+File: f:\github\AI-learning\KNN\test1\knn_generate.py
+Project: f:\github\AI-learning\KNN\test1
 Created Date: Sunday July 22nd 2018
 Author: QRZ
 -----
@@ -10,9 +10,13 @@ Modified By: QRZ at <qrzbing@foxmail.com>
 -----
 Copyright (c) 2018 nuaa
 '''
+
 import sys
 import getopt
 import numpy as np
+
+romance_label = 0
+action_label = 1
 
 
 def createDataSet():
@@ -25,12 +29,7 @@ def createDataSet():
             [115, 8]
         ]
     )
-    labels = [
-        '爱情片',
-        '爱情片',
-        '动作片',
-        '动作片'
-    ]
+    labels = np.array([0, 0, 1, 1])
     return group, labels
 
 

@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 '''
-File: f:\github\AI-learning\KNN\knn-test01.py
-Project: f:\github\AI-learning\KNN
+File: f:\github\AI-learning\KNN\test1\knn_test01.py
+Project: f:\github\AI-learning\KNN\test1
 Created Date: Sunday July 22nd 2018
 Author: QRZ
 -----
@@ -10,20 +10,28 @@ Modified By: QRZ at <qrzbing@foxmail.com>
 -----
 Copyright (c) 2018 nuaa
 '''
-# -*- coding: UTF-8 -*-
 
 import knn_generate
 import knn_classify
 import getopt
 import sys
+import numpy as np
+from matplotlib import pyplot as plt
 
 
 def help(flag):
     if flag is False:
         print("[-] Error args!")
-        print("You can input \"python knn_test01.py\" -h for help")
+        print("You can input \"python knn_test01.py -h\" for help")
     print("[+] python knn_test01.py -d <flag>")
     print("[+] python knn_test01.py --debug <flag>")
+
+
+def print_label(label):
+    if label == knn_generate.romance_label:
+        print("爱情片")
+    elif label == knn_generate.action_label:
+        print("动作片")
 
 
 if __name__ == '__main__':
@@ -45,11 +53,24 @@ if __name__ == '__main__':
             else:
                 help(False)
                 exit(2)
+        elif opt is not None:
+            help(False)
     # 创建数据集
     group, labels = knn_generate.createDataSet()
     # 测试集
-    test = [101, 20]
+    test = np.array([[101, 20]])
+    # TODO: 作图
+    romance_xy = (labels == knn_generate.romance_label)
+    # print(group[romance_xy][:, 0])
+    action_xy = (labels == knn_generate.action_label)
+    plt.plot(
+        group[romance_xy][:, 0], group[romance_xy][:, 1], 'ro',
+        group[action_xy][:, 0], group[action_xy][:, 1], 'bs',
+        test[:, 0], test[:, 1], 'g^'
+    )
+    plt.show()
+    # plt.plot(group[romance_x], )
     # kNN分类
     test_class = knn_classify.classify(test, group, labels, 3, debug=flag)
     # 打印分类结果
-    print(test_class)
+    print_label(test_class)

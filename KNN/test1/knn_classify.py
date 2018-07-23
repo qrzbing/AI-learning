@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 '''
-File: f:\github\AI-learning\KNN\knn-classify.py
-Project: f:\github\AI-learning\KNN
+File: f:\github\AI-learning\KNN\test1\knn_classify.py
+Project: f:\github\AI-learning\KNN\test1
 Created Date: Sunday July 22nd 2018
 Author: QRZ
 -----
@@ -10,6 +10,7 @@ Modified By: QRZ at <qrzbing@foxmail.com>
 -----
 Copyright (c) 2018 nuaa
 '''
+
 import numpy as np
 import operator
 
